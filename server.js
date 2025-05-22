@@ -25,7 +25,7 @@ app.post('/generate-commit', async (req, res) => {
         messages: [
           {
             role: 'user',
-            content: `Genera un mensaje de commit con tipo (feat:, fix:, docs:, etc.) para este diff:\n${diff}`,
+            content: `Commit conciso con tipo (fix, feat, chore...):\n${diff}`,
           },
         ],
         temperature: 0.3,
