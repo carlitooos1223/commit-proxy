@@ -41,8 +41,8 @@ app.post('/generate-commit', async (req, res) => {
     const commitMsg = response.data.choices[0].message.content;
     res.json({ message: commitMsg });
   } catch (err) {
-    console.error(err.response?.data || err.message);
-    res.status(500).json({ error: 'Error contacting OpenAI' });
+    console.error('OpenAI error:', err.response?.data || err.message);
+    res.status(500).json({ error: 'Error contacting OpenAI', details: err.response?.data || err.message });
   }
 });
 
